@@ -50,13 +50,13 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 	public Boolean createNewUser(UsersReq userRequest) {
 		for (Users user : getlist()) {
 			if (user.getUsername().equals(userRequest.getUsername())
-					&& user.getPassword().equals(userRequest.getPassword())) {
+					&& user.getPasswords().equals(userRequest.getPassword())) {
 				return false;
 			}
 		}
 		Users users = new Users();
 		users.setUsername(userRequest.getUsername());
-		users.setPassword(userRequest.getPassword());
+		users.setPasswords(userRequest.getPassword());
 		saveOrUpdate(users);
 		return true;
 	}
@@ -66,7 +66,7 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 		if (UsersRes.existsById(id)) {
 			Users users = byId.get();
 			users.setUsername(username);
-			users.setPassword(password);
+			users.setPasswords(password);
 			saveOrUpdate(users);
 			return true;
 		}
@@ -80,7 +80,7 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 		for (Users user : usersList) {
 			System.out.println(user);
 			if (user.getUsername().equals(userRequest.getUsername())
-					&& user.getPassword().equals(userRequest.getPassword())) {
+					&& user.getPasswords().equals(userRequest.getPassword())) {
 				return true;
 			}
 		}
@@ -103,7 +103,7 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 		 {
 			 if(userRole.getUserId() == users.getUserId())
 			 {
-				 RolesOfUser.add(e)
+				 //chua hoan thanh
 			 }
 		 }
 		 

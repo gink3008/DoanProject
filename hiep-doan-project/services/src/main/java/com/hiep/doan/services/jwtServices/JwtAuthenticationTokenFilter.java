@@ -21,6 +21,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 
 import com.hiep.doan.services.Entities.Roles;
 import com.hiep.doan.services.Entities.UserRole;
+import com.hiep.doan.services.Entities.Users;
 import com.hiep.doan.services.Services.UsersServices;
 
 public class JwtAuthenticationTokenFilter extends UsernamePasswordAuthenticationFilter {
@@ -35,34 +36,34 @@ public class JwtAuthenticationTokenFilter extends UsernamePasswordAuthentication
             throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String authToken = httpRequest.getHeader(TOKEN_HEADER);
-        if (jwtService.validateTokenLogin(authToken)) {
-            String username = jwtService.getUsernameFromToken(authToken);
-            Users user = userService.findByUsername(username);
-            if (user != null) {
-                boolean enabled = true;
-                boolean accountNonExpired = true;
-                boolean credentialsNonExpired = true;
-                boolean accountNonLocked = true;
-                Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
-                Set<UserRole> userRole = user.getListUserRoleEnitiys();
-                Set<Roles> roles = new HashSet<>();
-
-                for(UserRole userRoleEnitiy : userRole)
-                {
-                    roles.add(userRoleEnitiy.getRoleEntity());
-                }
-                for (Roles role : roles) {
-                    grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
-                    logger.info("grantauthor : " +  grantedAuthorities);
-                }
-                UserDetails userDetail = new User(username, user.getPassword(), enabled, accountNonExpired,
-                        credentialsNonExpired, accountNonLocked, grantedAuthorities);
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetail,
-                        null, userDetail.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-            }
-        }
-        chain.doFilter(request, response);
+//        if (jwtService.validateTokenLogin(authToken)) {
+//            String username = jwtService.getUsernameFromToken(authToken);
+//            Users user = userService.findByUsername(username);
+//            if (user != null) {
+//                boolean enabled = true;
+//                boolean accountNonExpired = true;
+//                boolean credentialsNonExpired = true;
+//                boolean accountNonLocked = true;
+//                Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
+//                Set<UserRole> userRole = user.getListUserRoleEnitiys();
+//                Set<Roles> roles = new HashSet<>();
+//
+//                for(UserRole userRoleEnitiy : userRole)
+//                {
+//                    roles.add(userRoleEnitiy.getRoleEntity());
+//                }
+//                for (Roles role : roles) {
+//                    grantedAuthorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+//                    logger.info("grantauthor : " +  grantedAuthorities);
+//                }
+//                UserDetails userDetail = new User(username, user.getPassword(), enabled, accountNonExpired,
+//                        credentialsNonExpired, accountNonLocked, grantedAuthorities);
+//                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(userDetail,
+//                        null, userDetail.getAuthorities());
+//                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(httpRequest));
+//                SecurityContextHolder.getContext().setAuthentication(authentication);
+//            }
+//        }
+//        chain.doFilter(request, response);
     }
 }

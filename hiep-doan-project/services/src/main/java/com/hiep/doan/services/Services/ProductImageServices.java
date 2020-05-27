@@ -6,19 +6,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.data.common.UttData;
-import com.hiep.doan.services.Entities.ProductImage;
+import com.hiep.doan.services.Entities.Image;
 import com.hiep.doan.services.EntitiesRequest.ProductImageReq;
 import com.hiep.doan.services.Respon.ProductImageRes;
 
 @Service
-public class ProductImageServices implements BaseServicesInterface<ProductImage, ProductImageReq, Integer> {
+public class ProductImageServices implements BaseServicesInterface<Image, ProductImageReq, Integer> {
 	@Autowired
 	private ProductImageRes ProductImageRes;
 	@Autowired
 	private UttData uttData;
 
 	@Override
-	public ProductImage findById(Integer id) {
+	public Image findById(Integer id) {
 		if (ProductImageRes.findById(id).isPresent()) {
 			return ProductImageRes.findById(id).get();
 		} else {
@@ -27,7 +27,7 @@ public class ProductImageServices implements BaseServicesInterface<ProductImage,
 	}
 
 	@Override
-	public List<ProductImage> getlist() {
+	public List<Image> getlist() {
 		// TODO Auto-generated method stub
 		return ProductImageRes.findAll();
 	}
@@ -35,13 +35,13 @@ public class ProductImageServices implements BaseServicesInterface<ProductImage,
 	
 
 	@Override
-	public void saveOrUpdate(ProductImage entity) {
+	public void saveOrUpdate(Image entity) {
 		ProductImageRes.save(entity);
 		uttData.flushSession();
 	}
 
 	@Override
-	public void delete(ProductImage entity) {
+	public void delete(Image entity) {
 		ProductImageRes.delete(entity);
 	}
 

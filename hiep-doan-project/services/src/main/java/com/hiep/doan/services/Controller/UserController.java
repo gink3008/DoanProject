@@ -64,7 +64,7 @@ public class UserController {
         for (Users user : userService.getlist()) {
         	UsersReq userRequest = new UsersReq();
             userRequest.setUsername(user.getUsername());
-            userRequest.setPassword(user.getPassword());
+            userRequest.setPassword(user.getPasswords());
             listUserRequests.add(userRequest);
         }
         return ResponseEntity.ok(listUserRequests);
@@ -76,7 +76,7 @@ public class UserController {
         if (users != null) {
             UsersReq userRequest = new UsersReq();
             userRequest.setUsername(users.getUsername());
-            userRequest.setPassword(users.getPassword());
+            userRequest.setPassword(users.getPasswords());
             return ResponseEntity.ok(userRequest);
         }
 
@@ -86,9 +86,7 @@ public class UserController {
     @PutMapping("/{id}?{username}?{password}")
     public ResponseEntity<Boolean> updateUserById(@PathVariable("id") int id, @PathVariable("username") String username, @PathVariable("password") String password) {
         return ResponseEntity.ok(userService.updateByID(id, username, password));
-    }
-
-    ;
+    };
 
 }
 

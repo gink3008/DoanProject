@@ -4,8 +4,8 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">2wsxCDE!</property>
-        <property name="hibernate.connection.url">jdbc:mysql://35.189.173.198:3306/hiep</property>
+        <property name="hibernate.connection.password">gago3008</property>
+        <property name="hibernate.connection.url">jdbc:mysql://35.240.148.31:3306/hiep</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
@@ -28,9 +28,9 @@
         <mapping resource="Entities/Product.hbm.xml"/>
         <mapping resource="Entities/RolePermission.hbm.xml"/>
         <mapping resource="Entities/Actions.hbm.xml"/>
-        <mapping resource="Entities/ProductImage.hbm.xml"/>
         <mapping resource="Entities/Category.hbm.xml"/>
         <mapping resource="Entities/About.hbm.xml"/>
+        <mapping resource="Entities/Image.hbm.xml"/>
         <mapping resource="Entities/Customer.hbm.xml"/>
         <mapping resource="Entities/UserRole.hbm.xml"/>
     </session-factory>
