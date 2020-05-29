@@ -17,10 +17,10 @@ public class Inititializer implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		UsersReq req = new UsersReq();
-		req.setUsername("admin");
-		req.setPassword("123456");
-		userServices.createNewUser(req);
+//		UsersReq req = new UsersReq();
+//		req.setUsername("admin");
+//		req.setPassword("123456");
+//		userServices.createNewUser(req);
 	}
 
 }

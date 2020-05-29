@@ -3,7 +3,7 @@ package com.data.common;
 public class CharsetConverter {
 
     private static char[] MARK = new char[] {
-            '̀', '́', '̃', '̉', '̣', 'x'
+//            '̀ ', '́ ', '̃ ', '̉ ', '̣ ', 'x'
     };
     private static char[] VOWEL = new char[] {
             'a',
