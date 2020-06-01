@@ -61,7 +61,8 @@ public class CommonDataImpl implements CommonData {
 
     @Override
     public SessionFactory getSessionFactory() {
-        return entityManager.getEntityManagerFactory().unwrap(SessionFactory.class);
+//        return entityManager.getEntityManagerFactory().unwrap(SessionFactory.class);
+    	return null;
     }
 
     @Override

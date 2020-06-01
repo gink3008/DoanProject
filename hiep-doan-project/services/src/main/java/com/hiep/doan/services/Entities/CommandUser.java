@@ -1,7 +1,9 @@
 package com.hiep.doan.services.Entities;
 // Generated May 25, 2020 3:40:20 PM by Hibernate Tools 5.4.7.Final
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -11,9 +13,17 @@ import javax.persistence.Table;
 @Table(name = "CommandUser")
 public class CommandUser implements java.io.Serializable {
 
+	@Id
+	@Column(name = "BillDetailId", nullable = false)
 	private int commandUserId;
+	
+	@Column(name = "UserId")
 	private Integer userId;
+	
+	@Column(name = "NewsId")
 	private Integer newsId;
+	
+	@Column(name = "Command")
 	private String command;
 
 	public CommandUser() {

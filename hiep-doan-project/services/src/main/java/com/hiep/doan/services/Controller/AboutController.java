@@ -96,9 +96,9 @@ public class AboutController extends BaseController{
         return Response.success(Constants.RESPONSE_CODE.SUCCESS).withData(form);
     }
     
-    @Path("/{id}")
     @DELETE
     @ResponseStatus(HttpStatus.OK)
+    @Path("/{id}")
     public @ResponseBody Response delete(HttpServletRequest req,@PathVariable int id) throws SysException, InstantiationException, IllegalAccessException {
         if(id > 0L) {
             About about = aboutServices.findById(id);
@@ -115,8 +115,8 @@ public class AboutController extends BaseController{
     }
 
 
-@PostMapping(path = "/{id}")
 @ResponseStatus(HttpStatus.OK)
+@PostMapping(path = "/{id}")
 public @ResponseBody Response update(HttpServletRequest req,@PathVariable int id) throws SysException, InstantiationException, IllegalAccessException {
     
 	if(id > 0) {

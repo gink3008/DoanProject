@@ -1,7 +1,9 @@
 package com.hiep.doan.services.Entities;
 // Generated May 25, 2020 3:40:20 PM by Hibernate Tools 5.4.7.Final
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -11,13 +13,30 @@ import javax.persistence.Table;
 @Table(name = "Menu")
 public class Menu implements java.io.Serializable {
 
+	
+	@Id
+	@Column(name = "MenuId", nullable = false)
 	private int menuId;
+	
+	@Column(name = "Texts")
 	private String texts;
+	
+	@Column(name = "Link")
 	private String link;
+	
+	@Column(name = "DisplayOrder")
 	private Integer displayOrder;
+	
+	@Column(name = "Target")
 	private String target;
+	
+	@Column(name = "Statuss")
 	private Boolean statuss;
+	
+	@Column(name = "MenuTypeId")
 	private Integer menuTypeId;
+	
+	@Column(name = "MenuParrenId")
 	private Integer menuParrenId;
 
 	public Menu() {

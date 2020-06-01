@@ -1,7 +1,10 @@
 package com.hiep.doan.services.Entities;
 // Generated May 25, 2020 3:40:20 PM by Hibernate Tools 5.4.7.Final
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.IdClass;
 import javax.persistence.Table;
 
 /**
@@ -9,12 +12,25 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "BillDetail")
+@IdClass(BillDetail.class)
 public class BillDetail implements java.io.Serializable {
 
+	@Id
+	@Column(name = "BillDetailId", nullable = false)
 	private int billDetailId;
+	
+	@Id
+	@Column(name = "ProductId")
 	private Integer productId;
+	
+	@Id
+	@Column(name = "BillId")
 	private Integer billId;
+	
+	@Column(name = "Quantity")
 	private Integer quantity;
+	
+	@Column(name = "Bdprice")
 	private Integer bdprice;
 
 	public BillDetail() {

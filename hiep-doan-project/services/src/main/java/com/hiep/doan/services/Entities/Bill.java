@@ -3,7 +3,9 @@ package com.hiep.doan.services.Entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,12 +15,20 @@ import javax.persistence.Table;
 @Table(name = "Bill")
 public class Bill implements java.io.Serializable {
 
+	@Id
+	@Column(name = "ActionActiveId", nullable = false)
 	private int billId;
+	@Column(name = "CreatedDate")
 	private Date createdDate;
+	@Column(name = "CreateBy")
 	private String createBy;
+	@Column(name = "ModifiedDate")
 	private Date modifiedDate;
+	@Column(name = "DeliverId")
 	private int deliverId;
+	@Column(name = "TotalPrice")
 	private Integer totalPrice;
+	@Column(name = "CustomerId")
 	private Integer customerId;
 
 	public Bill() {

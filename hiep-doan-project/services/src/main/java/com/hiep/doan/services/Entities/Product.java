@@ -3,7 +3,9 @@ package com.hiep.doan.services.Entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,28 +15,75 @@ import javax.persistence.Table;
 @Table(name = "Product")
 public class Product implements java.io.Serializable {
 
+	
+	@Id
+	@Column(name = "ProductId", nullable = false)
 	private int productId;
+	
+	@Column(name = "ProductCode")
 	private String productCode;
+	
+	@Column(name = "ProductName")
 	private String productName;
+	
+	@Column(name = "MetaTittle")
 	private String metaTittle;
+	
+	@Column(name = "Descriptions")
 	private String descriptions;
+	
+	@Column(name = "Price")
 	private Integer price;
+	
+	@Column(name = "PromotionPrice")
 	private Integer promotionPrice;
+	
+	@Column(name = "Quantity")
 	private Integer quantity;
+	
+	@Column(name = "CategoryId")
 	private Integer categoryId;
+	
+	@Column(name = "Detail")
 	private String detail;
+	
+	@Column(name = "CreatedDate")
 	private Date createdDate;
+	
+	@Column(name = "CreateBy")
 	private String createBy;
+	
+	@Column(name = "ModifiedDate")
 	private Date modifiedDate;
+	
+	@Column(name = "MetaKeywords")
 	private String metaKeywords;
+	
+	@Column(name = "MetaDescription")
 	private String metaDescription;
+	
+	@Column(name = "Statuss")
 	private Boolean statuss;
+	
+	@Column(name = "TopHot")
 	private Date topHot;
+	
+	@Column(name = "ViewCount")
 	private Integer viewCount;
+	
+	@Column(name = "LocationBegin")
 	private String locationBegin;
+	
+	@Column(name = "ProductLocationId")
 	private Integer productLocationId;
+	
+	@Column(name = "Combo")
 	private Integer combo;
+	
+	@Column(name = "TimeStart")
 	private Date timeStart;
+	
+	@Column(name = "TimeEnd")
 	private Date timeEnd;
 
 	public Product() {

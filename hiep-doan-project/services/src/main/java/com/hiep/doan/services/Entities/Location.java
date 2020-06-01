@@ -3,7 +3,9 @@ package com.hiep.doan.services.Entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,10 +15,20 @@ import javax.persistence.Table;
 @Table(name = "Location")
 public class Location implements java.io.Serializable {
 
+	@Id
+	@Column(name = "LocationId", nullable = false)
 	private int locationId;
+	
+	@Column(name = "LocationName")
 	private String locationName;
+	
+	@Column(name = "StartTime")
 	private Date startTime;
+	
+	@Column(name = "EndTime")
 	private Date endTime;
+	
+	@Column(name = "Description")
 	private String description;
 
 	public Location() {

@@ -67,7 +67,8 @@ public class UttDataImpl implements UttData {
 
     @Override
     public SessionFactory getSessionFactory() {
-        return entityManager.getEntityManagerFactory().unwrap(SessionFactory.class);
+//        return entityManager.getEntityManagerFactory().unwrap(SessionFactory.class);
+    	return null;
     }
 
     @Override

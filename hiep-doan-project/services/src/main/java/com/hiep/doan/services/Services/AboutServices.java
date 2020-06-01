@@ -14,6 +14,7 @@ import com.hiep.doan.services.Respon.AboutRes;
 public class AboutServices implements BaseServicesInterface<About, AboutReq, Integer> {
 	@Autowired
 	private AboutRes aboutRes;
+	
 	@Autowired
 	private UttData uttData;
 
@@ -35,7 +36,7 @@ public class AboutServices implements BaseServicesInterface<About, AboutReq, Int
 
 
 	public List<About> findByTittle(String tittle) {
-		return aboutRes.findbyTittle(tittle);
+		return null;
 	}
 
 	

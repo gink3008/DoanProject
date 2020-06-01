@@ -1,19 +1,20 @@
 package com.hiep.doan.services;
 
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.stereotype.Component;
-
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.annotation.ComponentScan;
 
 
-@Slf4j
-@Component
+@SpringBootApplication
+@ComponentScan("module-service")
 public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		return application.sources(ServicesApplication.class);
 	}
+	
+	
 
 }

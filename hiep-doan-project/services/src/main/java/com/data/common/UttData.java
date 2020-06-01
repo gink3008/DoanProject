@@ -14,14 +14,15 @@ import org.hibernate.SessionFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
-import com.data.domain.DataTableResults;
 import com.data.domain.DataTable;
+import com.data.domain.DataTableResults;
 
 /**
  * @author TanPTN
  * @since Jul, 2018
  * @version 1.0
  */
+
 public interface UttData {
 	/**
 	 * Get session factory.

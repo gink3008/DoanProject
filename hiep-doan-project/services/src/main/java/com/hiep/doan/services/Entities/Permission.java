@@ -1,7 +1,9 @@
 package com.hiep.doan.services.Entities;
 // Generated May 25, 2020 3:40:20 PM by Hibernate Tools 5.4.7.Final
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -11,7 +13,15 @@ import javax.persistence.Table;
 @Table(name = "Permission")
 public class Permission implements java.io.Serializable {
 
+	
+	@Id
+	@Column(name = "NewTagId", nullable = false)
+	private int newTagId;
+	
+	@Column(name = "PermissionId")
 	private int permissionId;
+	
+	@Column(name = "Permissionname")
 	private String permissionname;
 
 	public Permission() {

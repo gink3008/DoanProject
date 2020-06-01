@@ -3,7 +3,11 @@ package com.hiep.doan.services.Entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -12,16 +16,35 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "About")
 public class About implements java.io.Serializable {
-
+	@Id
+	@Column(name = "AboutId", nullable = false)
 	private int aboutId;
+	
+	@Column(name = "Tittle")
 	private String tittle;
+	
+	@Column(name = "MetaTittle")
 	private String metaTittle;
+	
+	@Column(name = "Descriptions")
 	private String descriptions;
+	
+	@Column(name = "Details")
 	private String details;
+	
+	@Column(name = "CreatedDate")
 	private Date createdDate;
+	
+	@Column(name = "CreatedBy")
 	private String createdBy;
+	
+	@Column(name = "ModifiedDate")
 	private Date modifiedDate;
+	
+	@Column(name = "MetaKeywords")
 	private String metaKeywords;
+	
+	@Column(name = "MetaDescription")
 	private String metaDescription;
 
 	public About() {

@@ -3,7 +3,9 @@ package com.hiep.doan.services.Entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,21 +15,53 @@ import javax.persistence.Table;
 @Table(name = "News")
 public class News implements java.io.Serializable {
 
+	@Id
+	@Column(name = "NewId", nullable = false)
 	private int newId;
+	
+	@Column(name = "Tittle")
 	private String tittle;
+	
+	@Column(name = "MetaTittle")
 	private String metaTittle;
+	
+	@Column(name = "Descriptions")
 	private String descriptions;
+	
+	@Column(name = "NewImage")
 	private String newImage;
+	
+	@Column(name = "NewCategodyId")
 	private Integer newCategodyId;
+	
+	@Column(name = "Detail")
 	private String detail;
+	
+	@Column(name = "CreatedDate")
 	private Date createdDate;
+	
+	@Column(name = "CreateBy")
 	private String createBy;
+	
+	@Column(name = "ModifiedDate")
 	private Date modifiedDate;
+	
+	@Column(name = "MetaKeywords")
 	private String metaKeywords;
+	
+	@Column(name = "MetaDescription")
 	private String metaDescription;
+	
+	@Column(name = "Statuss")
 	private Boolean statuss;
+	
+	@Column(name = "TopHot")
 	private Date topHot;
+	
+	@Column(name = "ViewCount")
 	private Integer viewCount;
+	
+	@Column(name = "TagId")
 	private Integer tagId;
 
 	public News() {

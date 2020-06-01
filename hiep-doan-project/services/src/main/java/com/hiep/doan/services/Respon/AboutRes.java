@@ -12,5 +12,5 @@ import com.hiep.doan.services.Entities.About;
 @Transactional
 @Repository
 public interface AboutRes extends JpaRepository<About, Integer> {
-	public List<About> findbyTittle(String tittle);
+//	public List<About> findbyTittle(String tittle);
 }

@@ -3,7 +3,9 @@ package com.hiep.doan.services.Entities;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
@@ -13,18 +15,48 @@ import javax.persistence.Table;
 @Table(name = "Category")
 public class Category implements java.io.Serializable {
 
+	
+	@Id
+	@Column(name = "BillDetailId", nullable = false)
+	private int billDetailId;
+	
+	@Column(name = "NewCategoryId")
 	private int newCategoryId;
+	
+	@Column(name = "Name")
 	private String name;
+	
+	@Column(name = "MeataTittle")
 	private String meataTittle;
+	
+	@Column(name = "ParrentId")
 	private Integer parrentId;
+	
+	@Column(name = "DisplayOrder")
 	private Integer displayOrder;
+	
+	@Column(name = "SeoTittle")
 	private String seoTittle;
+	
+	@Column(name = "CreatedDate")
 	private Date createdDate;
+	
+	@Column(name = "CreateBy")
 	private String createBy;
+	
+	@Column(name = "ModifiedDate")
 	private Date modifiedDate;
+	
+	@Column(name = "MetaKeywords")
 	private String metaKeywords;
+	
+	@Column(name = "MetaDescription")
 	private String metaDescription;
+	
+	@Column(name = "Statuss")
 	private Boolean statuss;
+	
+	@Column(name = "ShowOnHome")
 	private Boolean showOnHome;
 
 	public Category() {
