@@ -17,9 +17,6 @@ public class Image implements java.io.Serializable {
 	@Column(name = "ImageId", nullable = false)
 	private int imageId;
 	
-	@Column(name = "ProductId")
-	private Integer productId;
-	
 	@Column(name = "Link")
 	private String link;
 	
@@ -33,9 +30,8 @@ public class Image implements java.io.Serializable {
 		this.imageId = imageId;
 	}
 
-	public Image(int imageId, Integer productId, String link, Boolean main) {
+	public Image(int imageId, String link, Boolean main) {
 		this.imageId = imageId;
-		this.productId = productId;
 		this.link = link;
 		this.main = main;
 	}
@@ -48,13 +44,6 @@ public class Image implements java.io.Serializable {
 		this.imageId = imageId;
 	}
 
-	public Integer getProductId() {
-		return this.productId;
-	}
-
-	public void setProductId(Integer productId) {
-		this.productId = productId;
-	}
 
 	public String getLink() {
 		return this.link;

@@ -14,6 +14,7 @@ public interface BaseServicesInterface<A, B, C> {
 
 	public void delete(A entity);
 
+	public boolean create (B entity);
 	/**
 	 * Thuc hien validate truoc khi luu du lieu
 	 * 

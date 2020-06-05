@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.MenuType;
 import com.hiep.doan.services.EntitiesRequest.MenuTypeReq;
 import com.hiep.doan.services.Respon.MenuTypeRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class MenuTypeServices implements BaseServicesInterface<MenuType, MenuTypeReq, Integer> {
@@ -41,6 +41,15 @@ public class MenuTypeServices implements BaseServicesInterface<MenuType, MenuTyp
 	@Override
 	public void delete(MenuType entity) {
 		MenuTypeRes.delete(entity);
+	}
+
+	@Override
+	public boolean create(MenuTypeReq entity) {
+		// TODO Auto-generated method stub
+		MenuType menuType = new MenuType();
+		menuType.setMenuName(entity.getMenuName());
+		MenuTypeRes.save(menuType);
+		return true;
 	}
 
 }

@@ -5,16 +5,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.About;
 import com.hiep.doan.services.EntitiesRequest.AboutReq;
 import com.hiep.doan.services.Respon.AboutRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class AboutServices implements BaseServicesInterface<About, AboutReq, Integer> {
 	@Autowired
 	private AboutRes aboutRes;
-	
+
 	@Autowired
 	private UttData uttData;
 
@@ -33,13 +33,9 @@ public class AboutServices implements BaseServicesInterface<About, AboutReq, Int
 		return aboutRes.findAll();
 	}
 
-
-
 	public List<About> findByTittle(String tittle) {
 		return null;
 	}
-
-	
 
 	@Override
 	public void saveOrUpdate(About entity) {
@@ -51,7 +47,22 @@ public class AboutServices implements BaseServicesInterface<About, AboutReq, Int
 	public void delete(About entity) {
 		aboutRes.delete(entity);
 	}
-	
 
+	@Override
+	public boolean create(AboutReq entity) {
+		// TODO Auto-generated method stub
+		About about = new About();
+		about.setCreatedBy(entity.getCreatedBy());
+		about.setCreatedDate(entity.getCreatedDate());
+		about.setDescriptions(entity.getDescriptions());
+		about.setDetails(entity.getDetails());
+		about.setMetaDescription(entity.getMetaDescription());
+		about.setMetaKeywords(entity.getMetaKeywords());
+		about.setMetaTittle(entity.getMetaTittle());
+		about.setModifiedDate(entity.getModifiedDate());
+		about.setTittle(entity.getTittle());
+		aboutRes.save(about);
+		return true;
+	}
 
 }

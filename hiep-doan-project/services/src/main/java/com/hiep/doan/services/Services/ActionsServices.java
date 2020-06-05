@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.Actions;
 import com.hiep.doan.services.EntitiesRequest.ActionsReq;
 import com.hiep.doan.services.Respon.ActionsRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 
 @Service
@@ -45,6 +45,19 @@ public class ActionsServices implements BaseServicesInterface<Actions, ActionsRe
 	public void delete(Actions entity) {
 		actionsRes.delete(entity);
 	}
+
+	@Override
+	public boolean create(ActionsReq entity) {
+		// TODO Auto-generated method stub
+		 for (Actions action : getlist()) {
+	            if (action.getActionName().equals(entity.getActionName())) {
+	                return false;
+	            }
+	        }
+	        Actions actions = new Actions();
+	        actions.setActionName(entity.getActionName());
+	        actionsRes.save(actions);
+	        return true;	}
 	
 
 

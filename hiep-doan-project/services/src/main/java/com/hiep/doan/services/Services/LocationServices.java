@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.Location;
 import com.hiep.doan.services.EntitiesRequest.LocationReq;
 import com.hiep.doan.services.Respon.LocationRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class LocationServices implements BaseServicesInterface<Location, LocationReq, Integer> {
@@ -41,6 +41,18 @@ public class LocationServices implements BaseServicesInterface<Location, Locatio
 	@Override
 	public void delete(Location entity) {
 		locationRes.delete(entity);
+	}
+
+	@Override
+	public boolean create(LocationReq entity) {
+		// TODO Auto-generated method stub
+		Location location = new Location();
+		location.setDescription(entity.getDescription());
+		location.setEndTime(entity.getEndTime());
+		location.setLocationName(entity.getLocationName());
+		location.setStartTime(entity.getStartTime());
+		locationRes.save(location);
+		return true;
 	}
 
 }

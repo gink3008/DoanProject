@@ -25,7 +25,7 @@ public class NewsReq  {
 
 	private String descriptions;
 	
-	private String newImage;
+	private Integer newImage;
 	
 	private Integer newCategodyId;
 	
@@ -56,7 +56,7 @@ public class NewsReq  {
 		this.newId = newId;
 	}
 
-	public NewsReq(int newId, String tittle, String metaTittle, String descriptions, String newImage,
+	public NewsReq(int newId, String tittle, String metaTittle, String descriptions, Integer newImage,
 			Integer newCategodyId, String detail, Date createdDate, String createBy, Date modifiedDate,
 			String metaKeywords, String metaDescription, Boolean statuss, Date topHot, Integer viewCount,
 			String tagId) {

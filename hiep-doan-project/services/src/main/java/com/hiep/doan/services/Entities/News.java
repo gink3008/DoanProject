@@ -29,7 +29,7 @@ public class News implements java.io.Serializable {
 	private String descriptions;
 	
 	@Column(name = "NewImage")
-	private String newImage;
+	private Integer newImage;
 	
 	@Column(name = "NewCategodyId")
 	private Integer newCategodyId;
@@ -71,7 +71,7 @@ public class News implements java.io.Serializable {
 		this.newId = newId;
 	}
 
-	public News(int newId, String tittle, String metaTittle, String descriptions, String newImage,
+	public News(int newId, String tittle, String metaTittle, String descriptions, Integer newImage,
 			Integer newCategodyId, String detail, Date createdDate, String createBy, Date modifiedDate,
 			String metaKeywords, String metaDescription, Boolean statuss, Date topHot, Integer viewCount,
 			Integer tagId) {
@@ -125,11 +125,11 @@ public class News implements java.io.Serializable {
 		this.descriptions = descriptions;
 	}
 
-	public String getNewImage() {
+	public Integer getNewImage() {
 		return this.newImage;
 	}
 
-	public void setNewImage(String newImage) {
+	public void setNewImage(Integer newImage) {
 		this.newImage = newImage;
 	}
 

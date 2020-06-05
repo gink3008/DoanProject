@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.Category;
 import com.hiep.doan.services.EntitiesRequest.CategoryReq;
 import com.hiep.doan.services.Respon.CategoryRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class CategoryServices implements BaseServicesInterface<Category, CategoryReq, Integer> {
@@ -41,6 +41,26 @@ public class CategoryServices implements BaseServicesInterface<Category, Categor
 	@Override
 	public void delete(Category entity) {
 		CategoryRes.delete(entity);
+	}
+
+	@Override
+	public boolean create(CategoryReq entity) {
+		// TODO Auto-generated method stub
+		Category category = new Category();
+		category.setCreateBy(entity.getCreateBy());
+		category.setCreatedDate(entity.getCreatedDate());
+		category.setDisplayOrder(entity.getDisplayOrder());
+		category.setMeataTittle(entity.getMeataTittle());
+		category.setMetaDescription(entity.getMetaDescription());
+		category.setMetaKeywords(entity.getMetaKeywords());
+		category.setModifiedDate(entity.getModifiedDate());
+		category.setName(entity.getName());
+		category.setNewCategoryId(entity.getNewCategoryId());
+		category.setParrentId(entity.getParrentId());
+		category.setSeoTittle(entity.getSeoTittle());
+		category.setShowOnHome(entity.getShowOnHome());
+		CategoryRes.save(category);
+		return true;
 	}
 
 }

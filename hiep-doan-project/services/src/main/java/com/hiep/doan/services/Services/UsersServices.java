@@ -6,13 +6,13 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.Roles;
 import com.hiep.doan.services.Entities.UserRole;
 import com.hiep.doan.services.Entities.Users;
 import com.hiep.doan.services.EntitiesRequest.UsersReq;
 import com.hiep.doan.services.Respon.UserRoleRes;
 import com.hiep.doan.services.Respon.UsersRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class UsersServices implements BaseServicesInterface<Users, UsersReq, Integer> {
@@ -48,12 +48,18 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 		UsersRes.delete(entity);
 	}
 	public Boolean createNewUser(UsersReq userRequest) {
-		for (Users user : getlist()) {
-			if (user.getUsername().equals(userRequest.getUsername())
-					&& user.getPasswords().equals(userRequest.getPassword())) {
-				return false;
-			}
-		}
+//		List<Users> listuser ;
+//		listuser = getlist();
+//		if(listuser != null)
+//		{
+//			for (Users user : listuser) {
+//				if (user.getUsername().equals(userRequest.getUsername())
+//						&& user.getPasswords().equals(userRequest.getPassword())) {
+//					return false;
+//				}
+//			}
+//		}
+		
 		Users users = new Users();
 		users.setUsername(userRequest.getUsername());
 		users.setPasswords(userRequest.getPassword());
@@ -109,6 +115,21 @@ public class UsersServices implements BaseServicesInterface<Users, UsersReq, Int
 		 
 		 return null;
 	 }
+
+	@Override
+	public boolean create(UsersReq entity) {
+		// TODO Auto-generated method stub
+		for (Users user : getlist()) {
+            if (user.getUsername().equals(entity.getUsername()) && user.getPasswords().equals(entity.getPassword())) {
+                return false;
+            }
+        }
+		Users users = new Users();
+        users.setUsername(entity.getUsername());
+        users.setPasswords(entity.getPassword());
+        UsersRes.save(users);
+        return true;
+	}
 }
 
 

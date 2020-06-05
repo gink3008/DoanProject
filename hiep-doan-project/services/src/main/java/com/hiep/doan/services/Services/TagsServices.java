@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.Tags;
 import com.hiep.doan.services.EntitiesRequest.TagsReq;
 import com.hiep.doan.services.Respon.TagsRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class TagsServices implements BaseServicesInterface<Tags, TagsReq, Integer> {
@@ -43,6 +43,15 @@ public class TagsServices implements BaseServicesInterface<Tags, TagsReq, Intege
 	@Override
 	public void delete(Tags entity) {
 		TagsRes.delete(entity);
+	}
+
+	@Override
+	public boolean create(TagsReq entity) {
+		// TODO Auto-generated method stub
+		Tags tags = new Tags();
+		tags.setTagName(entity.getTagName());
+		TagsRes.save(tags);
+		return true;
 	}
 
 

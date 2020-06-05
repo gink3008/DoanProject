@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.Bill;
 import com.hiep.doan.services.EntitiesRequest.BillReq;
 import com.hiep.doan.services.Respon.BillRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class BillServices implements BaseServicesInterface<Bill, BillReq, Integer> {
@@ -43,6 +43,20 @@ public class BillServices implements BaseServicesInterface<Bill, BillReq, Intege
 	@Override
 	public void delete(Bill entity) {
 		billRes.delete(entity);
+	}
+
+	@Override
+	public boolean create(BillReq entity) {
+		// TODO Auto-generated method stub
+		Bill bill = new Bill();
+		bill.setCreateBy(entity.getCreateBy());
+		bill.setCreatedDate(entity.getCreatedDate());
+		bill.setCustomerId(entity.getCustomerId());
+		bill.setDeliverId(entity.getDeliverId());
+		bill.setModifiedDate(entity.getModifiedDate());
+		bill.setTotalPrice(entity.getTotalPrice());
+		billRes.save(bill);
+		return true;
 	}
 
 }

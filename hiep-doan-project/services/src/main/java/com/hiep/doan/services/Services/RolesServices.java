@@ -5,10 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.data.common.UttData;
 import com.hiep.doan.services.Entities.Roles;
 import com.hiep.doan.services.EntitiesRequest.RolesReq;
 import com.hiep.doan.services.Respon.RolesRes;
+import com.hiep.doan.services.Services.UnitData.UttData;
 
 @Service
 public class RolesServices implements BaseServicesInterface<Roles, RolesReq, Integer> {
@@ -44,6 +44,15 @@ public class RolesServices implements BaseServicesInterface<Roles, RolesReq, Int
 	@Override
 	public void delete(Roles entity) {
 		RolesRes.delete(entity);
+	}
+
+	@Override
+	public boolean create(RolesReq entity) {
+		// TODO Auto-generated method stub
+		Roles roles = new Roles();
+		roles.setRoleName(entity.getRoleName());
+		RolesRes.save(roles);
+		return true;
 	}
 
 
